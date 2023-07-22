@@ -20,10 +20,9 @@ RSpec.describe "Merchant Index Page", type: :feature do
         click_link("Schroeder-Jerde")
       end
       
-      merchant = Merchant.first
-      expect(current_path).to eq(merchant_path(merchant))
-      expect(page).to have_content(merchant.name)
-      expect(page).to_not have_content("Schroeder-Jerde")
+      expect(current_path).to eq(merchant_path(1))
+      expect(page).to have_content("Schroeder-Jerde")
+      expect(page).to_not have_content("Willms and Sons")
     end
   end
 end
