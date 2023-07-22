@@ -6,7 +6,8 @@ RSpec.describe "Merchant Index Page", type: :feature do
       visit merchants_path
 
       expect(page).to have_link("Schroeder-Jerde")
-      expect(page).to have_link("Wisozk, Hoeger and Bosco")
+      expect(page).to have_link("Klein, Rempel and Jones")
+      expect(page).to have_link("Willms and Sons")
     end
   end
 end
