@@ -23,6 +23,5 @@ class MerchantsController < ApplicationController
 
     item_json = JSON.parse(items_response.body, symbolize_names: true)
     @items = item_json[:data]
-    require 'pry'; binding.pry
   end
 end
