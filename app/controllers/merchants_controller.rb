@@ -17,5 +17,12 @@ class MerchantsController < ApplicationController
 
     json = JSON.parse(response.body, symbolize_names: true)
     @merchant = json[:data]
+
+
+    items_response = conn.get("/api/v1/merchants/#{merchant}/items")
+
+    item_json = JSON.parse(items_response.body, symbolize_names: true)
+    @items = item_json[:data]
+    require 'pry'; binding.pry
   end
 end
