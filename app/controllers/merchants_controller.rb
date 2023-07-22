@@ -6,6 +6,9 @@ class MerchantsController < ApplicationController
 
     json = JSON.parse(response.body, symbolize_names: true)
     @merchants = json[:data]
-    # require 'pry'; binding.pry
+  end
+
+  def show
+    
   end
 end
