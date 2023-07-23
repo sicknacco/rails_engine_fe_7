@@ -10,7 +10,7 @@ class MerchantFacade
   def one_merchant(id)
     service = MerchantService.new
     json = service.merchant(id)
-    @merchant = json[:data]
+    @merchant = Merchant.new(json[:data])
   end
   
   def merchant_items(merch_id)
