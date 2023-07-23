@@ -1,9 +1,14 @@
 class MerchantService
   def all_merchants
-    conn = Faraday.new(url: "http://localhost:3000")
+    get_url("/api/v1/merchants")
+  end
 
-    response = conn.get("/api/v1/merchants")
+  def get_url(url)
+    response = conn.get(url)
+    JSON.parse(response.body, symbolize_names: true)
+  end
 
-    json = JSON.parse(response.body, symbolize_names: true)
+  def conn
+    Faraday.new(url: "http://localhost:3000")
   end
 end
