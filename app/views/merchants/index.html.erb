@@ -1,0 +1,8 @@
+<h1>Merchant Index Page</h1>
+<div id="merchants">
+  <ul>
+    <% @merch_facade.each do |merchant| %>
+      <li><%= link_to merchant.name, merchant_path(merchant.id) %></li>
+      <% end %>
+  </ul>
+</div>
