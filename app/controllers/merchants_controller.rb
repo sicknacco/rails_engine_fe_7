@@ -4,19 +4,12 @@ class MerchantsController < ApplicationController
   end
 
   def show
-    merchant = params[:id]
+    @merchant = MerchantFacade.new.one_merchant(params[:id])
+    @items = MerchantFacade.new.merchant_items(params[:id])
 
-    conn = Faraday.new(url: "http://localhost:3000")
+    # items_response = conn.get("/api/v1/merchants/#{merchant}/items")
 
-    response = conn.get("/api/v1/merchants/#{merchant}")
-
-    json = JSON.parse(response.body, symbolize_names: true)
-    @merchant = json[:data]
-
-
-    items_response = conn.get("/api/v1/merchants/#{merchant}/items")
-
-    item_json = JSON.parse(items_response.body, symbolize_names: true)
-    @items = item_json[:data]
+    # item_json = JSON.parse(items_response.body, symbolize_names: true)
+    # @items = item_json[:data]
   end
 end
