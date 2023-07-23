@@ -15,7 +15,7 @@ RSpec.describe "Merchant Index Page", type: :feature do
 
     it "each merchant name links to their show page" do
       visit merchants_path
-      
+
       within "#merchants" do
         click_link("Schroeder-Jerde")
       end
